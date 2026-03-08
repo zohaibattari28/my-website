@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Conversion Pixel Labs | Digital Marketing Agency</title>
@@ -10,26 +9,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-  @media (max-width: 768px) {
-
-.navbar{
-flex-direction: column;
-align-items: center;
-}
-
-.nav-links{
-display:flex;
-flex-direction:column;
-gap:10px;
-}
-
-.hero-buttons{
-display:flex;
-flex-direction:column;
-gap:10px;
-}
-
-}
 /* General */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
 body{background:#0f172a;color:white;transition:all 0.3s;}
@@ -53,11 +32,6 @@ header nav a:hover{color:#00c3ff;}
 .btn-primary:hover{background:white;transform:scale(1.05);}
 .btn-secondary{background:#1e293b;color:#38bdf8;}
 .btn-secondary:hover{background:#38bdf8;color:black;}
-  .hero-buttons{
-display:flex;
-gap:15px;
-flex-wrap:wrap;
-}
 
 /* Services */
 .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:40px;}
@@ -92,6 +66,47 @@ flex-wrap:wrap;
 /* Animations */
 @keyframes fadeDown{from{opacity:0;transform:translateY(-40px);}to{opacity:1;transform:translateY(0);} }
 @keyframes fadeUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);} }
+  <!-- Responsive Fix Start -->
+<style>
+/* Mobile Responsive CSS */
+@media (max-width: 768px) {
+
+  /* Navbar items vertical */
+  nav, .navbar {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    text-align: center;
+  }
+
+  /* Hero buttons vertical & wrap */
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    flex-wrap: wrap !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Adjust logo/title size for mobile */
+  .logo, .site-title {
+    font-size: 1.5rem !important;
+  }
+
+  /* Optional: small padding for mobile */
+  body, section {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}
+</style>
+<!-- Responsive Fix End -->
 </style>
 </head>
 <body>
@@ -202,4 +217,5 @@ document.querySelector(link.getAttribute('href')).scrollIntoView({behavior:'smoo
 </body>
 
 </html>
+
 
