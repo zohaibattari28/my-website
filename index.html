@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Conversion Pixel Labs | Digital Marketing Agency</title>
@@ -67,50 +66,29 @@ header nav a:hover{color:#00c3ff;}
 /* Animations */
 @keyframes fadeDown{from{opacity:0;transform:translateY(-40px);}to{opacity:1;transform:translateY(0);} }
 @keyframes fadeUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);} }
-<!-- MOBILE FIX START -->
-<style>
-/* Ensure mobile scaling */
+
+/* ================= MOBILE RESPONSIVE FIXES ================= */
 @media (max-width: 768px) {
 
-  /* Navbar fix */
-  nav, .navbar {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    gap: 10px !important;
-  }
+  /* Navbar mobile */
+  header{flex-direction:column;align-items:center;padding:15px;}
+  header nav{display:flex;flex-direction:column;align-items:center;margin-top:10px;}
+  header nav a{margin:5px 0;font-size:16px;}
 
-  .nav-links {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 8px !important;
-    margin: 5px 0 !important;
-  }
+  /* Hero text */
+  .hero h1{font-size:32px;}
+  .hero p{font-size:16px;margin-bottom:20px;}
+  .hero div a{padding:10px 25px;font-size:14px;}
 
-  /* Hero buttons fix */
-  .hero-buttons {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 8px !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
+  /* Hero buttons layout vertical */
+  .hero div{display:flex;flex-direction:column;gap:10px;align-items:center;}
 
-  /* Optional: shrink logo/title */
-  .logo, .site-title {
-    font-size: 1.5rem !important;
-  }
+  /* Sections padding */
+  section{padding:60px 5%;}
 
-  /* Reduce padding/margin for mobile */
-  body, section {
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-  }
+  /* Services / Portfolio / Reviews */
+  .services, .portfolio, .client-reviews{grid-template-columns:1fr;}
 }
-</style>
-<!-- MOBILE FIX END -->
 </style>
 </head>
 <body>
@@ -164,11 +142,9 @@ header nav a:hover{color:#00c3ff;}
 </div>
 </section>
 
-<!-- Client Reviews Section -->
 <section class="section" id="reviews">
 <h2>Client Reviews</h2>
 <div class="client-reviews">
-<!-- Repeat this div for each review -->
 <div class="review"><img src="https://randomuser.me/api/portraits/men/1.jpg"><div class="name">John Doe</div><div class="stars">★★★★★</div><p>"Pixel setup improved our ad performance significantly."</p></div>
 <div class="review"><img src="https://randomuser.me/api/portraits/women/2.jpg"><div class="name">Jane Smith</div><div class="stars">★★★★★</div><p>"Professional service, highly recommend."</p></div>
 <div class="review"><img src="https://randomuser.me/api/portraits/men/3.jpg"><div class="name">Michael Lee</div><div class="stars">★★★★★</div><p>"Data-driven marketing that really works."</p></div>
@@ -179,7 +155,6 @@ header nav a:hover{color:#00c3ff;}
 <div class="review"><img src="https://randomuser.me/api/portraits/women/8.jpg"><div class="name">Sophia Taylor</div><div class="stars">★★★★★</div><p>"Our ad campaigns are now fully optimized."</p></div>
 <div class="review"><img src="https://randomuser.me/api/portraits/men/9.jpg"><div class="name">James Anderson</div><div class="stars">★★★★★</div><p>"Highly recommend for e-commerce marketing."</p></div>
 <div class="review"><img src="https://randomuser.me/api/portraits/women/10.jpg"><div class="name">Mia Martinez</div><div class="stars">★★★★★</div><p>"Great results with Google Ads management."</p></div>
-<!-- You can copy/paste to reach 20 reviews -->
 </div>
 </section>
 
@@ -219,8 +194,4 @@ document.querySelector(link.getAttribute('href')).scrollIntoView({behavior:'smoo
 </script>
 
 </body>
-
 </html>
-
-
-
