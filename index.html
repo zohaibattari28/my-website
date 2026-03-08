@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Conversion Pixel Labs | Digital Marketing Agency</title>
@@ -66,47 +67,50 @@ header nav a:hover{color:#00c3ff;}
 /* Animations */
 @keyframes fadeDown{from{opacity:0;transform:translateY(-40px);}to{opacity:1;transform:translateY(0);} }
 @keyframes fadeUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);} }
-  <!-- Responsive Fix Start -->
+<!-- MOBILE FIX START -->
 <style>
-/* Mobile Responsive CSS */
+/* Ensure mobile scaling */
 @media (max-width: 768px) {
 
-  /* Navbar items vertical */
+  /* Navbar fix */
   nav, .navbar {
+    display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+    text-align: center !important;
+    gap: 10px !important;
   }
 
   .nav-links {
     display: flex !important;
     flex-direction: column !important;
-    gap: 10px !important;
-    text-align: center;
+    gap: 8px !important;
+    margin: 5px 0 !important;
   }
 
-  /* Hero buttons vertical & wrap */
+  /* Hero buttons fix */
   .hero-buttons {
     display: flex !important;
     flex-direction: column !important;
-    gap: 10px !important;
+    gap: 8px !important;
     flex-wrap: wrap !important;
-    justify-content: center;
-    align-items: center;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
-  /* Adjust logo/title size for mobile */
+  /* Optional: shrink logo/title */
   .logo, .site-title {
     font-size: 1.5rem !important;
   }
 
-  /* Optional: small padding for mobile */
+  /* Reduce padding/margin for mobile */
   body, section {
     padding-left: 10px !important;
     padding-right: 10px !important;
   }
 }
 </style>
-<!-- Responsive Fix End -->
+<!-- MOBILE FIX END -->
 </style>
 </head>
 <body>
@@ -217,5 +221,6 @@ document.querySelector(link.getAttribute('href')).scrollIntoView({behavior:'smoo
 </body>
 
 </html>
+
 
 
