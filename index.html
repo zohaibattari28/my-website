@@ -19,9 +19,15 @@ section{padding:80px 8%;text-align:center;}
 /* Header / Navbar */
 header{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:20px 8%;background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);z-index:1000;transition:0.3s;}
 header .logo{font-size:24px;font-weight:700;color:#38bdf8;}
+header nav{display:flex;align-items:center;}
 header nav a{margin-left:25px;font-weight:500;transition:0.3s;}
 header nav a:hover{color:#00c3ff;}
 #darkToggle{cursor:pointer;padding:6px 10px;border:1px solid #38bdf8;border-radius:6px;font-size:14px;margin-left:15px;}
+
+/* Hamburger Icon */
+.hamburger{display:none;cursor:pointer;font-size:24px;margin-left:15px;}
+header nav.mobile-menu{display:none;flex-direction:column;background:rgba(15,23,42,0.95);position:absolute;top:70px;right:8%;padding:20px;border-radius:8px;box-shadow:0 5px 15px rgba(0,0,0,0.3);}
+header nav.mobile-menu a{margin:10px 0;font-size:16px;}
 
 /* Hero */
 .hero{height:100vh;display:flex;justify-content:center;align-items:center;text-align:center;flex-direction:column;background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),url('https://images.unsplash.com/photo-1460925895917-afdab827c52f');background-size:cover;background-position:center;transition:0.5s;}
@@ -67,21 +73,17 @@ header nav a:hover{color:#00c3ff;}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-40px);}to{opacity:1;transform:translateY(0);} }
 @keyframes fadeUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);} }
 
-/* ================= MOBILE RESPONSIVE FIXES ================= */
-@media (max-width: 768px) {
-
-  /* Navbar mobile */
-  header{flex-direction:column;align-items:center;padding:15px;}
-  header nav{display:flex;flex-direction:column;align-items:center;margin-top:10px;}
-  header nav a{margin:5px 0;font-size:16px;}
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width:768px){
+  .hamburger{display:block;}
+  header nav a{display:none;} /* hide desktop links */
+  header nav.mobile-menu a{display:block;}
 
   /* Hero text */
   .hero h1{font-size:32px;}
   .hero p{font-size:16px;margin-bottom:20px;}
-  .hero div a{padding:10px 25px;font-size:14px;}
-
-  /* Hero buttons layout vertical */
   .hero div{display:flex;flex-direction:column;gap:10px;align-items:center;}
+  .hero div a{padding:10px 25px;font-size:14px;}
 
   /* Sections padding */
   section{padding:60px 5%;}
@@ -95,13 +97,22 @@ header nav a:hover{color:#00c3ff;}
 
 <header>
 <div class="logo">Conversion Pixel Labs</div>
-<nav>
+<i class="fas fa-bars hamburger"></i>
+<nav class="mobile-menu">
 <a href="#home">Home</a>
 <a href="#services">Services</a>
 <a href="#portfolio">Portfolio</a>
 <a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
-<span id="darkToggle">🌙</span>
+<a id="darkToggle">🌙</a>
+</nav>
+<nav class="desktop-menu">
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+<a id="darkToggle">🌙</a>
 </nav>
 </header>
 
@@ -179,17 +190,25 @@ header nav a:hover{color:#00c3ff;}
 // Dark / Light Toggle
 const toggle = document.getElementById('darkToggle');
 toggle.onclick = () => {
-document.body.classList.toggle('light-mode');
-document.body.style.background = document.body.classList.contains('light-mode') ? '#f5f5f5' : '#0f172a';
-document.body.style.color = document.body.classList.contains('light-mode') ? '#000' : '#fff';
+  document.body.classList.toggle('light-mode');
+  document.body.style.background = document.body.classList.contains('light-mode') ? '#f5f5f5' : '#0f172a';
+  document.body.style.color = document.body.classList.contains('light-mode') ? '#000' : '#fff';
 };
 
-// Smooth Scroll
-document.querySelectorAll('nav a').forEach(link=>{
-link.addEventListener('click',e=>{
-e.preventDefault();
-document.querySelector(link.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+// Hamburger toggle
+const hamburger = document.querySelector('.hamburger');
+const mobileMenu = document.querySelector('nav.mobile-menu');
+hamburger.addEventListener('click', () => {
+  mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
 });
+
+// Smooth Scroll for desktop menu
+document.querySelectorAll('.desktop-menu a, .mobile-menu a').forEach(link=>{
+  link.addEventListener('click',e=>{
+    e.preventDefault();
+    document.querySelector(link.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+    if(window.innerWidth <= 768) mobileMenu.style.display='none';
+  });
 });
 </script>
 
